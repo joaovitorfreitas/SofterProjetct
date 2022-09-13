@@ -1,16 +1,25 @@
 import "../App.css";
 import { Form, Button } from "react-bootstrap";
 import Logo from '../img/Icone.png';
-import { BrowserRouter as  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
 function HeaderComponent() {
+
+  const RemoverAuth = () =>{
+    localStorage.removeItem('usuario-login')
+    console.log("Removendo item")
+  }
+
+
+
+
   return (
       <header className="div-header">   
-      <div>
+      <div> 
             <img className="Header-Logo" src={Logo} />
-            <Link  to="/Login"><h5 className="Header-Logout" >Sair</h5></Link>
+            <Link onClick={RemoverAuth}  to="/Login"><h5 className="Header-Logout" >Sair</h5></Link>
       </div>
 
       </header>
